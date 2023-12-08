@@ -1,13 +1,14 @@
 import { ProfileContainer, ProfileImage } from "./styles";
-import avatar from "../../../../assets/avatar.svg";
 import { ProfileData } from "./components/ProfileData";
+import { UserContext } from "../../../../contexts/UserContext";
+import { useContext } from "react";
 
 export function Profile() {
+	const { user } = useContext(UserContext);
 	return (
 		<ProfileContainer>
-			
 			<ProfileImage>
-				<img src={avatar} alt="" />
+				<img src={user?.avatarUrl} alt="" />
 			</ProfileImage>
 			<ProfileData />
 		</ProfileContainer>

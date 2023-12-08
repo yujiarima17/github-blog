@@ -6,19 +6,19 @@ import {
 	ProfileName,
 } from "./styles";
 import { ArrowSquareUpRight } from "phosphor-react";
+import { useContext } from "react";
+import { UserContext } from "../../../../../../contexts/UserContext";
+
 export function ProfileData() {
+	const { user } = useContext(UserContext);
 	return (
 		<ProfileDataContainer>
-			<ProfileName>Cameron Williamson</ProfileName>
-			<ProfileBio>
-				Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra
-				massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar
-				vel mass.
-			</ProfileBio>
+			<ProfileName>{user?.username}</ProfileName>
+			<ProfileBio>{user?.biography}</ProfileBio>
 			<ProfileInfoContainer>
-				<ProfileInfo>cameronwll</ProfileInfo>
-				<ProfileInfo>Rocketseat</ProfileInfo>
-				<ProfileInfo>32 seguidores</ProfileInfo>
+				<ProfileInfo>{user?.loginName}</ProfileInfo>
+				<ProfileInfo>{user?.company}</ProfileInfo>
+				<ProfileInfo> {`${user?.followers} seguidores`}</ProfileInfo>
 			</ProfileInfoContainer>
 		</ProfileDataContainer>
 	);
