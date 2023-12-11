@@ -7,9 +7,8 @@ export function Router(){
     return(
        <Routes>
          <Route path="/" element={<DefaultLayout/>}>
-          <Route path="/" element={<Blog/>}></Route>
-          <Route path="/posts" element={<Post/>}></Route>
-
+          <Route path="/" element={<Blog/>}/>
+          <Route path="/posts/:postId" element={<Post/>}/>
          </Route>
        </Routes>
     )
