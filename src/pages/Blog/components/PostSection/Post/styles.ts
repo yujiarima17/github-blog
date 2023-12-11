@@ -1,7 +1,9 @@
 import styled from "styled-components";
-export const PostContainer = styled.div`
+import { Link } from "react-router-dom";
+export const PostContainer = styled(Link)`
 	display: flex;
 	flex-direction: column;
+	text-decoration: none;
 	border-radius: 10px;
 	padding: 1rem 1rem;
 	gap: 1rem;
@@ -17,10 +19,14 @@ export const PostHeader = styled.header`
 	display: flex;
 	margin-top: 2rem;
 	justify-content: center;
+	gap: 1rem;
 	span.title {
 		display: flex;
+		text-align: start;
 		margin-left: -10px;
 		width: 17rem;
+		text-align: center;
+		flex: 1;
 		font: ${(props) => props.theme.fonts["Title M"]};
 		color: ${(props) => props.theme.colors["base-title"]};
 	}

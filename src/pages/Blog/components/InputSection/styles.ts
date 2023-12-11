@@ -23,7 +23,6 @@ export const InputField = styled.input`
 	&:focus {
 		border: 1px solid #3294f8;
 	}
-	
 `;
 export const InputHeader = styled.div`
 	display: flex;
