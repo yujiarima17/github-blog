@@ -5,7 +5,7 @@ export const BlogContainer = styled.div`
 	flex-direction: column;
 	margin: 0 2rem;
 	&:nth-child(2) {
-    margin-top: 2rem;
+		margin-top: 2rem;
 		margin-bottom: 1rem;
 	}
 `;
