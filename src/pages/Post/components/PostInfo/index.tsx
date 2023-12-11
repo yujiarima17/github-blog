@@ -13,32 +13,47 @@ import {
 	faComment,
 	faCalendarDay,
 } from "@fortawesome/free-solid-svg-icons";
-export function PostInfo() {
+import { useContext } from "react";
+import { UserContext } from "../../../../contexts/UserContext";
+interface PostInfoProps {
+	title: string;
+	commentsAmount: number;
+	dateDay: number;
+	url: string;
+}
+export function PostInfo({
+	title,
+	commentsAmount,
+	dateDay,
+	url,
+}: PostInfoProps) {
+	const { user } = useContext(UserContext);
 	return (
 		<PostInfoContainer>
 			<PostInfoHeader>
-				<HeaderInfo to="..">
+				<HeaderInfo href="..">
 					<FontAwesomeIcon icon={faChevronLeft} color="#3294F8" />
 					<span>VOLTAR</span>
 				</HeaderInfo>
-				<HeaderInfo to="">
-					<FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#3294F8" />
+				<HeaderInfo href={url} target="_blank">
 					<span>VER NO GITHUB</span>
+					<FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#3294F8" />
 				</HeaderInfo>
 			</PostInfoHeader>
 			<PostData>
-				Javascript data types and data structures
+				{title}
 				<PostDetailsContainer>
 					<span className="post-detail">
 						<FontAwesomeIcon icon={faGithub} color="#3A536B" />
-						cameronwll
+						{user.username}
 					</span>
 					<span className="post-detail">
 						<FontAwesomeIcon icon={faComment} color="#3A536B" />
-						Há 1 dia
+						Há {dateDay} dia
 					</span>
 					<span className="post-detail">
-						<FontAwesomeIcon icon={faCalendarDay} color="#3A536B" />5
+						<FontAwesomeIcon icon={faCalendarDay} color="#3A536B" />
+						{commentsAmount}
 						comentários
 					</span>
 				</PostDetailsContainer>

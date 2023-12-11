@@ -10,14 +10,20 @@ export const PostInfoContainer = styled.div`
 	gap: 1rem;
 	border-radius: 10px;
 	background: ${(props) => props.theme.colors["base-profile"]};
+	&:hover {
+		border: 1px solid #3294f8;
+	}
+	transition: 1s;
 `;
 export const PostInfoHeader = styled.header`
 	display: flex;
 	justify-content: space-between;
 `;
-export const HeaderInfo = styled(Link)`
+export const HeaderInfo = styled.a`
 	display: flex;
 	align-items: center;
+	text-decoration: none;
+	gap: 5px;
 	color: ${(props) => props.theme.colors.blue};
 	font: ${(props) => props.theme.fonts["Link"]};
 	span {
@@ -26,7 +32,6 @@ export const HeaderInfo = styled(Link)`
 		}
 	}
 `;
-
 export const PostData = styled.div`
 	display: flex;
 	font: ${(props) => props.theme.fonts["Title L"]};

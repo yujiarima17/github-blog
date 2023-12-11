@@ -8,5 +8,5 @@ export const PostContentContainer = styled.div`
 	padding: 40px 32px;
 	width: 100%;
 `;
-export const PostContentText = styled.div``
-export const PostContentCode = styled.div``
+export const PostContentText = styled.div``;
+export const PostContentCode = styled.div``;
