@@ -8,7 +8,6 @@ import {
 import {
 	faArrowUpRightFromSquare,
 	faBuilding,
-	faUser,
 	faUserGroup,
 } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../../../../../../contexts/UserContext";

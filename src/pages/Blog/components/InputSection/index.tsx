@@ -9,7 +9,7 @@ import {
 	InputHeader,
 } from "./styles";
 import { useContextSelector } from "use-context-selector";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 const searchSchema = z.object({
 	search: z.string(),
 });
@@ -20,13 +20,14 @@ export function InputSection() {
 			return context;
 		}
 	);
+
 	const { register } = useForm({
 		resolver: zodResolver(searchSchema),
 	});
+
 	const handleFetchPosts = useCallback(
 		async (event: React.FocusEvent<HTMLInputElement>) => {
 			const searchValue = event.target.value;
-			console.log("1");
 			if (searchValue) {
 				await searchPosts(searchValue);
 			} else {
