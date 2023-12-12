@@ -1,7 +1,11 @@
 import styled from "styled-components";
 export const HeaderContainer = styled.header`
 	display: flex;
-	flex-direction: column;
+	border-radius: 6px;
+	box-shadow:
+		#14589c 0px 2px 1px,
+		#14589c 0px 4px 2px,
+		#14589c 0px 8px 4px,
+		#14589c 0px 16px 8px,
+		#14589c 0px 32px 16px;
 `;
-
-export const Cover = styled.div``;

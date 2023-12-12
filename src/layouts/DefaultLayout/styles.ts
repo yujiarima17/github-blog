@@ -13,5 +13,4 @@ export const MainContainer = styled.main`
 	flex-direction: column;
 	margin: 0 auto;
 	margin-top: -5rem;
-	
 `;
