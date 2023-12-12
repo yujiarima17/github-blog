@@ -22,7 +22,12 @@ interface PostProviderProps {
 	children: ReactNode;
 }
 
-function transformPost(posts: []): Post[] {
+const githubUser = {
+	username: "yujiarima17",
+	repository: "github-blog-issues",
+};
+
+function postsList(posts: []): Post[] {
 	return posts.map((post) => {
 		const { body, html_url, title, number, created_at, comments } = post;
 		const formatDate = DateInDaysToNow(created_at);
@@ -38,6 +43,7 @@ function transformPost(posts: []): Post[] {
 }
 export function PostProvider({ children }: PostProviderProps) {
 	const [posts, setPosts] = useState<Post[]>([]);
+
 	const getPost = useCallback(
 		(postNumber: number) => {
 			const post = posts.find((post) => post.issueNumber == postNumber);
@@ -47,18 +53,19 @@ export function PostProvider({ children }: PostProviderProps) {
 	);
 
 	const fetchPosts = useCallback(async () => {
-		const url = "repos/yujiarima17/github-blog-issues/issues";
+		const url = `repos/${githubUser.username}/${githubUser.repository}/issues`;
 		const response = await api.get(url);
-		const posts = transformPost(response.data);
+		const posts = postsList(response.data);
 		setPosts(posts);
 	}, []);
+
 	const searchPosts = useCallback(async (searchText?: string) => {
-		const url = `search/issues?q=${searchText}%20repo:yujiarima17/github-blog-issues`;
+		const url = `search/issues?q=${searchText}%20repo:${githubUser.username}/${githubUser.repository}`;
 		const response = await api.get(url);
-		const posts = transformPost(response.data.items);
+		const posts = postsList(response.data.items);
 		setPosts(posts);
-		console.log('hi')
 	}, []);
+
 	useEffect(() => {
 		fetchPosts();
 	}, [fetchPosts]);

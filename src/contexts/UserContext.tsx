@@ -11,7 +11,7 @@ interface User {
 	readonly url: string;
 }
 interface UserContextType {
-	user: User;
+	user?: User;
 }
 export const UserContext = createContext({} as UserContextType);
 interface UserProviderProps {
@@ -19,6 +19,7 @@ interface UserProviderProps {
 }
 export function UserProvider({ children }: UserProviderProps) {
 	const [user, setUser] = useState<User>();
+
 	const fetchUser = useCallback(async () => {
 		const response = await api.get("users/yujiarima17");
 		const { bio, avatar_url, followers, login, name, company, html_url } =
@@ -34,9 +35,11 @@ export function UserProvider({ children }: UserProviderProps) {
 		};
 		setUser(userData);
 	}, []);
+
 	useEffect(() => {
 		fetchUser();
 	}, [fetchUser]);
+
 	return (
 		<UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
 	);
