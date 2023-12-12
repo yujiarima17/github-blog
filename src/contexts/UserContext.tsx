@@ -1,26 +1,28 @@
 import { ReactNode, useCallback, useEffect, useState } from "react";
 import { api } from "../utils/axios";
-import { createContext } from "react";
-interface GitHubUser {
+import { createContext } from "use-context-selector";
+interface User {
 	readonly loginName: string;
 	readonly avatarUrl: string;
-	readonly biography: string |'Empty Biography';
+	readonly biography: string;
 	readonly username: string;
-	readonly followers: number | 0;
-	readonly company: string | "No Company";
+	readonly followers: number;
+	readonly company: string;
+	readonly url: string;
 }
 interface UserContextType {
-	user?: GitHubUser;
+	user: User;
 }
 export const UserContext = createContext({} as UserContextType);
 interface UserProviderProps {
 	children: ReactNode;
 }
 export function UserProvider({ children }: UserProviderProps) {
-	const [user, setUser] = useState<GitHubUser>();
+	const [user, setUser] = useState<User>();
 	const fetchUser = useCallback(async () => {
 		const response = await api.get("users/yujiarima17");
-		const { bio, avatar_url, followers, login, name, company } = response.data;
+		const { bio, avatar_url, followers, login, name, company, html_url } =
+			response.data;
 		const userData = {
 			loginName: login,
 			avatarUrl: avatar_url,
@@ -28,6 +30,7 @@ export function UserProvider({ children }: UserProviderProps) {
 			username: name,
 			company,
 			followers,
+			url: html_url,
 		};
 		setUser(userData);
 	}, []);
