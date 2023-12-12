@@ -3,5 +3,5 @@ interface PostContentProps {
 	content: string;
 }
 export function PostContent({ content }: PostContentProps) {
-	return <PostContentContainer>{content}</PostContentContainer>;
+	return <PostContentContainer children={content} />;
 }

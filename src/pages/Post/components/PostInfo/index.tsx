@@ -47,7 +47,7 @@ export function PostInfo({
 				<PostDetailsContainer>
 					<span className="post-detail">
 						<FontAwesomeIcon icon={faGithub} color="#3A536B" />
-						{user.username}
+						{user!.username}
 					</span>
 					<span className="post-detail">
 						<FontAwesomeIcon icon={faComment} color="#3A536B" />
