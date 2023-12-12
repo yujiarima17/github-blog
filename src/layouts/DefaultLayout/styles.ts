@@ -10,7 +10,8 @@ export const LayoutContainer = styled.div`
 export const MainContainer = styled.main`
 	display: flex;
 	justify-content: center;
-	margin: -5rem auto 0 auto;
+	flex-direction: column;
+	margin: 0 auto;
 	margin-top: -5rem;
-	width: 54rem;
+	
 `;

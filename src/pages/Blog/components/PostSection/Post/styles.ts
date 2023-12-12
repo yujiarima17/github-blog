@@ -5,12 +5,11 @@ export const PostContainer = styled(Link)`
 	flex-direction: column;
 	text-decoration: none;
 	border-radius: 10px;
-	padding: 1rem 1rem;
+	padding: 0.08rem 1rem;
 	gap: 1rem;
 	width: 26rem;
 	height: 16rem;
 	background: ${(props) => props.theme.colors["base-post"]};
-	transition: 0.5s;
 	&:hover {
 		border: 2px solid #3a536b;
 	}
@@ -25,7 +24,7 @@ export const PostHeader = styled.header`
 		text-align: start;
 		margin-left: -10px;
 		width: 17rem;
-		text-align: center;
+		text-align: right;
 		flex: 1;
 		font: ${(props) => props.theme.fonts["Title M"]};
 		color: ${(props) => props.theme.colors["base-title"]};
@@ -42,6 +41,7 @@ export const PostContent = styled.div`
 	align-items: top;
 	height: 6.5rem;
 	text-overflow: ellipsis;
+	text-align: left;
 	width: 22rem;
 	justify-content: center;
 	font: ${(props) => props.theme.fonts["Text M"]};
