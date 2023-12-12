@@ -1,12 +1,52 @@
-import { HeaderPostsNumber, InputContainer, InputField, InputHeader } from "./styles";
-
+import { PostContext } from "../../../../contexts/PostsContext";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import {
+	HeaderPostsNumber,
+	InputContainer,
+	InputField,
+	InputHeader,
+} from "./styles";
+import { useContextSelector } from "use-context-selector";
+import { useCallback, useEffect } from "react";
+const searchSchema = z.object({
+	search: z.string(),
+});
 export function InputSection() {
+	const { searchPosts, posts, fetchPosts } = useContextSelector(
+		PostContext,
+		(context) => {
+			return context;
+		}
+	);
+	const { register } = useForm({
+		resolver: zodResolver(searchSchema),
+	});
+	const handleFetchPosts = useCallback(
+		async (event: React.FocusEvent<HTMLInputElement>) => {
+			const searchValue = event.target.value;
+			console.log("1");
+			if (searchValue) {
+				await searchPosts(searchValue);
+			} else {
+				await fetchPosts();
+			}
+		},
+		[fetchPosts, searchPosts]
+	);
+
 	return (
 		<InputContainer>
 			<InputHeader>
-				Publicações <HeaderPostsNumber>6 publicações</HeaderPostsNumber>
+				Publicações
+				<HeaderPostsNumber>{posts.length} publicações</HeaderPostsNumber>
 			</InputHeader>
-			<InputField placeholder="Buscar Conteúdo"/>
+			<InputField
+				placeholder="Buscar Conteúdo"
+				{...register("search")}
+				onBlur={(e) => handleFetchPosts(e)}
+			/>
 		</InputContainer>
 	);
 }
