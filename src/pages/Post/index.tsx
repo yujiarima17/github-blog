@@ -1,13 +1,16 @@
-import { useContext } from "react";
+
 import { PostContent } from "./components/PostContent";
 import { PostInfo } from "./components/PostInfo";
 import { PostContainer } from "./styles";
 import { useParams } from "react-router-dom";
 import { PostContext } from "../../contexts/PostsContext";
+import { useContextSelector } from "use-context-selector";
 
 export function Post() {
 	const { postId } = useParams();
-	const { getPost } = useContext(PostContext);
+	const getPost = useContextSelector(PostContext, (context) => {
+		return context.getPost;
+	});
 	const post = getPost(Number.parseInt(postId!));
 
 	return (

@@ -13,8 +13,8 @@ import {
 	faComment,
 	faCalendarDay,
 } from "@fortawesome/free-solid-svg-icons";
-import { useContext } from "react";
 import { UserContext } from "../../../../contexts/UserContext";
+import { useContextSelector } from "use-context-selector";
 interface PostInfoProps {
 	title: string;
 	commentsAmount: number;
@@ -27,7 +27,9 @@ export function PostInfo({
 	dateDay,
 	url,
 }: PostInfoProps) {
-	const { user } = useContext(UserContext);
+	const user = useContextSelector(UserContext, (context) => {
+		return context.user;
+	});
 	return (
 		<PostInfoContainer>
 			<PostInfoHeader>

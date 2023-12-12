@@ -11,12 +11,14 @@ import {
 	faUser,
 	faUserGroup,
 } from "@fortawesome/free-solid-svg-icons";
-import { useContext } from "react";
 import { UserContext } from "../../../../../../contexts/UserContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { useContextSelector } from "use-context-selector";
 export function ProfileData() {
-	const { user } = useContext(UserContext);
+	const user = useContextSelector(UserContext, (context) => {
+		return context.user;
+	});
 	return (
 		<ProfileDataContainer>
 			<a className="link" href={user?.url}>
