@@ -3,12 +3,12 @@ import { api } from "../utils/axios";
 import { createContext } from "use-context-selector";
 import { DateInDaysToNow } from "../utils/formatter";
 interface Post {
-	title: string;
-	issueNumber: number;
-	textContent: string;
-	dateDay: number;
-	commentsAmount: number;
-	url: string;
+	readonly title: string;
+	readonly issueNumber: number;
+	readonly textContent: string;
+	readonly dateDay: number;
+	readonly commentsAmount: number;
+	readonly url: string;
 }
 interface PostContextType {
 	posts: Post[];

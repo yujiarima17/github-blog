@@ -1,4 +1,3 @@
-
 import { PostContent } from "./components/PostContent";
 import { PostInfo } from "./components/PostInfo";
 import { PostContainer } from "./styles";
@@ -8,8 +7,8 @@ import { useContextSelector } from "use-context-selector";
 
 export function Post() {
 	const { postId } = useParams();
-	const getPost = useContextSelector(PostContext, (context) => {
-		return context.getPost;
+	const { getPost } = useContextSelector(PostContext, (context) => {
+		return context;
 	});
 	const post = getPost(Number.parseInt(postId!));
 

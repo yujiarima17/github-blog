@@ -6,9 +6,9 @@ export const PostContainer = styled.div`
 	align-items: center;
 	margin: 0 2rem;
 	width: 54rem;
-	@media ${device.md}{
+	@media ${device.md} {
 		width: 100%;
 		margin: 0;
-		padding:0 2rem;
-	};
+		padding: 0 2rem;
+	}
 `;

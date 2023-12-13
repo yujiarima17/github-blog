@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { device } from "../../../../../utils/breakpoints";
+import { device } from "../../../../../../utils/breakpoints";
 export const PostContainer = styled(Link)`
 	display: flex;
 	flex-direction: column;
