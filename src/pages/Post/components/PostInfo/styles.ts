@@ -1,4 +1,4 @@
-
+import { device } from "../../../../utils/breakpoints";
 import styled from "styled-components";
 export const PostInfoContainer = styled.div`
 	display: flex;
@@ -12,6 +12,10 @@ export const PostInfoContainer = styled.div`
 	background: ${(props) => props.theme.colors["base-profile"]};
 	&:hover {
 		border: 1px solid #3294f8;
+	}
+	@media ${device.md} {
+		
+
 	}
 	transition: 1s;
 `;

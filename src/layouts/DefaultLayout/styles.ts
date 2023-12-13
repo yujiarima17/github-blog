@@ -6,6 +6,9 @@ export const LayoutContainer = styled.div`
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
+	@media ${device.md} {
+		width: 100%;
+	}
 `;
 export const MainContainer = styled.main`
 	display: flex;
