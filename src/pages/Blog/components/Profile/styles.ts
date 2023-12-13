@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../../../utils/breakpoints";
 export const ProfileContainer = styled.div`
 	display: flex;
 	span.link {
@@ -18,6 +19,22 @@ export const ProfileContainer = styled.div`
 		border: 1px solid #3294f8;
 	}
 	transition: 1s;
+	@media ${device.xl} {
+		height: 10rem;
+	}
+	@media ${device.md} {
+		width: fit-content;
+		height: 15rem;
+		flex-direction: column;
+		margin: 0 auto;
+	}
+	@media ${device.sm} {
+		width: 100%;
+		gap: 5px;
+	    justify-content: center;
+		width: 50%;
+		height: 11rem;
+	}
 `;
 export const ProfileImage = styled.span`
 	display: flex;
@@ -25,5 +42,11 @@ export const ProfileImage = styled.span`
 	img {
 		height: 9.25rem;
 		width: 9.25rem;
+	}
+	@media ${device.xl} {
+		img {
+			height: 6.25rem;
+			width: 6.25rem;
+		}
 	}
 `;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { device } from "../../../../../utils/breakpoints";
 export const PostContainer = styled(Link)`
 	display: flex;
 	flex-direction: column;
@@ -12,6 +13,9 @@ export const PostContainer = styled(Link)`
 	background: ${(props) => props.theme.colors["base-post"]};
 	&:hover {
 		border: 2px solid #3a536b;
+	}
+	@media ${device.md} {
+		margin: 0 auto;
 	}
 `;
 export const PostHeader = styled.header`
